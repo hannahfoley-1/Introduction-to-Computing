@@ -9,7 +9,13 @@ Main:
   @ 	ch = ch + 0x20;
   @ }
 
-  @ *** your solution goes here ***
+  CMP R0, #'A'  @ if (ch >= 'A' && ch <= 'Z') {
+  BLT NotCap
+  CMP R0, #'Z'
+  BGT NotCap
+  ADD R0, R0, 0x20 @ 	ch = ch + 0x20;
+NotCap: 
+  MOV R0, R0 @ }
 
   @ End of program ... check your result
 

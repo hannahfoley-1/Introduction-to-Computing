@@ -13,7 +13,26 @@ Main:
   @ 	v = 0;
   @ }
 
-  @ *** your solution goes here ***
+  @Stored in R1
+  @result in R0
+  
+  CMP R1, #'a'     @ if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+  BEQ Vowel 
+  CMP R1, #'e'
+  BEQ Vowel 
+  CMP R1, #'i'
+  BEQ Vowel 
+  CMP R1, #'o'
+  BEQ Vowel
+  CMP R1, #'u'
+  BEQ Vowel 
+  B NotVowel        @ {
+Vowel:
+  MOV R0, #1        @v=1;
+  B EndVowel        @{
+NotVowel:           @else {
+  MOV R0, #0        @v=0;
+EndVowel:         @}
 
   @ End of program ... check your result
 
